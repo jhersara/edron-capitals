@@ -1,0 +1,158 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+// Modelo de Usuario
+model User {
+  id                String         @id @default(cuid())
+  email             String         @unique
+  password          String
+  name              String
+  lastName          String
+  documentType      String         // "CC", "CE", "Pasaporte"
+  documentNumber    String         @unique
+  birthDate         DateTime
+  phone             String
+  address           String?
+  city              String?
+  country           String?
+  isVerified        Boolean        @default(false)
+  isActive          Boolean        @default(true)
+  role              Role           @default(USER)
+  createdAt         DateTime       @default(now())
+  updatedAt         DateTime       @updatedAt
+  
+  // Relaciones
+  investments       Investment[]
+  transactions      Transaction[]
+  notifications     Notification[]
+}
+
+// Roles de usuario
+enum Role {
+  USER
+  ADMIN
+  SUPER_ADMIN
+}
+
+// Modelo de Inversión
+model Investment {
+  id                String         @id @default(cuid())
+  userId            String
+  user              User           @relation(fields: [userId], references: [id])
+  amount            Float          // Monto invertido
+  currentValue      Float          // Valor actual
+  startDate         DateTime       @default(now())
+  status            InvestmentStatus @default(ACTIVE)
+  createdAt         DateTime       @default(now())
+  updatedAt         DateTime       @updatedAt
+  
+  // Relaciones
+  dailyReturns      DailyReturn[]
+  transactions      Transaction[]
+}
+
+enum InvestmentStatus {
+  ACTIVE
+  PAUSED
+  CLOSED
+}
+
+// Modelo de Rendimientos Diarios
+model DailyReturn {
+  id                String         @id @default(cuid())
+  investmentId      String
+  investment        Investment     @relation(fields: [investmentId], references: [id])
+  date              DateTime       @default(now())
+  returnPercentage  Float          // Porcentaje de rendimiento del día
+  returnAmount      Float          // Monto ganado ese día
+  portfolioValue    Float          // Valor del portafolio ese día
+  createdAt         DateTime       @default(now())
+  
+  @@unique([investmentId, date])
+}
+
+// Modelo de Transacciones
+model Transaction {
+  id                String         @id @default(cuid())
+  userId            String
+  user              User           @relation(fields: [userId], references: [id])
+  investmentId      String?
+  investment        Investment?    @relation(fields: [investmentId], references: [id])
+  type              TransactionType
+  amount            Float
+  status            TransactionStatus @default(PENDING)
+  paymentMethod     String?        // "stripe", "bank_transfer", etc.
+  paymentId         String?        // ID de la pasarela de pago
+  description       String?
+  createdAt         DateTime       @default(now())
+  updatedAt         DateTime       @updatedAt
+}
+
+enum TransactionType {
+  DEPOSIT
+  WITHDRAWAL
+  RETURN
+}
+
+enum TransactionStatus {
+  PENDING
+  COMPLETED
+  FAILED
+  CANCELLED
+}
+
+// Modelo de Rendimiento Global del Fondo
+model FundPerformance {
+  id                String         @id @default(cuid())
+  date              DateTime       @unique @default(now())
+  totalAUM          Float          // Assets Under Management
+  dailyReturn       Float          // Rendimiento diario del fondo
+  monthlyReturn     Float?
+  yearlyReturn      Float?
+  createdAt         DateTime       @default(now())
+  updatedAt         DateTime       @updatedAt
+}
+
+// Modelo de Anuncios
+model Announcement {
+  id                String         @id @default(cuid())
+  title             String
+  content           String         @db.Text
+  type              AnnouncementType @default(INFO)
+  isActive          Boolean        @default(true)
+  createdAt         DateTime       @default(now())
+  updatedAt         DateTime       @updatedAt
+}
+
+enum AnnouncementType {
+  INFO
+  WARNING
+  SUCCESS
+  ALERT
+}
+
+// Modelo de Notificaciones
+model Notification {
+  id                String         @id @default(cuid())
+  userId            String
+  user              User           @relation(fields: [userId], references: [id])
+  title             String
+  message           String         @db.Text
+  type              String
+  isRead            Boolean        @default(false)
+  createdAt         DateTime       @default(now())
+}
