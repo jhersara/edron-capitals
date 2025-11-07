@@ -13,8 +13,8 @@
   --cl-primary-1000:#161700; /* tono más profundo */
 
   /* ─── TONOS BASE / FONDOS ───────────────────────────── */
-  --cl-bg: #0a0a0a;         /* fondo general del sitio */
-  --cl-bg-alt: #121212;     /* paneles / tarjetas */
+  --cl-bg: #191919;         /* fondo general del sitio */
+  --cl-bg-alt: #262626;     /* paneles / tarjetas */
   --cl-bg-secondary: #161616;  /* paneles, tarjetas 2 */
   --cl-surface: #1A1A1A;    /* superficies elevadas */
   --cl-surface-t: #1f1f1f;       /* áreas elevadas 2 */
