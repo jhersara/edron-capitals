@@ -1,0 +1,82 @@
+:root {
+  /* ─── PALETA PRINCIPAL ─────────────────────────────── */
+  --cl-primary-50:  #FFFF00; /* Amarillo puro - resalta */
+  --cl-primary-100: #ffffcc;
+  --cl-primary-200: #ffff99;
+  --cl-primary-300: #ffff66;
+  --cl-primary-400: #ffee33;
+  --cl-primary-500: #ffea00; /* principal */
+  --cl-primary-600: #e6d200;
+  --cl-primary-700: #bfa900;
+  --cl-primary-800: #998200;
+  --cl-primary-900: #736200;
+  --cl-primary-1000:#161700; /* tono más profundo */
+
+  /* ─── TONOS BASE / FONDOS ───────────────────────────── */
+  --cl-bg: #0a0a0a;         /* fondo general del sitio */
+  --cl-bg-alt: #121212;     /* paneles / tarjetas */
+  --cl-bg-secondary: #161616;  /* paneles, tarjetas 2 */
+  --cl-surface: #1A1A1A;    /* superficies elevadas */
+  --cl-surface-t: #1f1f1f;       /* áreas elevadas 2 */
+  --cl-border: #2a2a2a;        /* bordes y divisores */
+  --cl-border: #2A2A2A;     /* líneas sutiles */
+  --cl-shadow: rgba(0, 0, 0, 0.5);
+
+  /* ─── TIPOGRAFÍA ────────────────────────────────────── */
+  --cl-text: #EAEAEA;       /* texto principal */
+  --cl-text-muted: #B0B0B0; /* texto secundario */
+  --cl-text-invert: #0a0a0a;/* texto sobre amarillo */
+  --font-sans: 'Inter', 'Poppins', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  
+  /* === TEXTO === */
+  --cl-text-primary: #ffffff;
+  --cl-text-secondary: #b3b3b3;
+  --cl-text-muted: #777777;
+  --cl-text-invert: #0d0d0d;
+
+  /* ─── ESPACIADOS ────────────────────────────────────── */
+  --space-2xs: 0.25rem;
+  --space-xs:  0.5rem;
+  --space-sm:  0.75rem;
+  --space-md:  1rem;
+  --space-lg:  1.5rem;
+  --space-xl:  2rem;
+  --space-2xl: 3rem;
+
+  /* ─── RADIOS Y SOMBRAS ──────────────────────────────── */
+  --rd-sm: 4px;
+  --rd-md: 8px;
+  --rd-lg: 12px;
+
+  --sh-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
+  --sh-md: 0 4px 8px rgba(0, 0, 0, 0.3);
+  --sh-lg: 0 8px 16px rgba(0, 0, 0, 0.4);
+
+  /* === TRANSICIONES === */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  
+
+  /* ─── ESTADO DEL SISTEMA ────────────────────────────── */
+  --cl-success: #A6E22E;
+  --cl-warning: #FFD60A;
+  --cl-error:   #FF5555;
+  --cl-info:    #4CC9F0;
+
+  /* === FEEDBACK === */
+  --cl-success: #4caf50;
+  --cl-warning: #ff9800;
+  --cl-error: #f44336;
+  --cl-info: #2196f3;
+
+  /* === FUENTE === */
+  --font-family-base: 'Inter', 'Segoe UI', sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 600;
+
+  /* ─── GRADIENTE ESPECIAL ────────────────────────────── */
+  --gradient-primary: linear-gradient(90deg, var(--cl-primary-400), var(--cl-primary-800));
+}
