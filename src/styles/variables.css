@@ -19,7 +19,7 @@
   --cl-surface: #1A1A1A;    /* superficies elevadas */
   --cl-surface-t: #1f1f1f;       /* áreas elevadas 2 */
   --cl-border: #2a2a2a;        /* bordes y divisores */
-  --cl-border: #2A2A2A;     /* líneas sutiles */
+  --cl-bd: #2A2A2A;     /* líneas sutiles */
   --cl-shadow: rgba(0, 0, 0, 0.5);
 
   /* ─── TIPOGRAFÍA ────────────────────────────────────── */
@@ -49,7 +49,7 @@
   --rd-md: 8px;
   --rd-lg: 12px;
 
-  --sh-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
+  --sh-sm: 0 1px 3px rgba(0, 0, 0, 0.164);
   --sh-md: 0 4px 8px rgba(0, 0, 0, 0.3);
   --sh-lg: 0 8px 16px rgba(0, 0, 0, 0.4);
 

@@ -143,3 +143,83 @@
 
 
 /* === HERO SECTION === */
+
+.hero {
+  height: 820px;
+  width: 100%;
+}
+
+.hero .hero_content {
+  width: 100%;
+  height: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  /* background-color: var(--cl-bg-alt); */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 5rem;
+  margin-top: 2rem;
+
+}
+
+.hero .hero_content .marker{
+  background:#ffea003a;
+  height: 35px;
+  width: 300px;
+  padding: 20px;
+  border: 1px solid var(--cl-primary-600);
+  border-radius: 15px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  gap: 5px;
+  color: var(--cl-primary-500);
+  box-shadow: var(--sh-md);
+
+}
+
+.hero .hero_content h1 {
+  font-size: 4.5rem;
+  color: var(--cl-text);
+  line-height: 1;
+}
+
+.hero .hero_content h1 .strong {
+  color: var(--cl-primary-500);
+}
+
+.hero .hero_content .text{
+  font-size: 19px;
+}
+
+.hero .hero_content .btn_content{
+  display: flex;
+  align-items: center;
+  align-content: center;
+  gap: 15px;
+  text-align: center;
+  width: 40%;
+}
+
+.hero .hero_content .btn_content .btn{
+  text-align: center;
+  padding: 13px;
+  color: var(--cl-text);
+  border: 2px solid var(--cl-bd);
+  border-radius: var(--rd-lg);
+}
+
+.hero .hero_content .btn_content .btn:hover{
+  box-shadow: var(--sh-md);
+}
+
+.hero .hero_content .btn_content .actived{
+  background: var(--cl-primary-700);
+}
+
+.hero .hero_content .btn_content .on_actived{
+  background: #bdbcbc3d;
+}

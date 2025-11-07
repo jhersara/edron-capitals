@@ -1,4 +1,5 @@
 import React from 'react'
+import { RiMedalLine} from 'react-icons/ri'
 import '@/styles/pages/page.css'
 import Image from 'next/image'
 
@@ -57,14 +58,14 @@ export default function HomePage() {
       <section className="hero">
         <div className="hero_content">
           <div className="marker">
-            Icono
+            <RiMedalLine className='mdl' />
             Fondo de Invercion Registrado
           </div>
           <h1>Invierte con <span className="strong">Confianza</span><br />y Transparencia</h1>
           <p className="text">Accede  a oportunidades de invercion profecionales con reportes diarios, seguridad <br />institucional y rendimientos superiores al mercado.</p>
           <div className="btn_content">
-            <a href="/" className="btn">Comienza a invertir</a>
-            <a href="/" className="btn">Conoce mas</a>
+            <a href="/" className="btn actived">Comienza a invertir</a>
+            <a href="/" className="btn on_actived">Conoce mas</a>
           </div>
         </div>
       </section>
