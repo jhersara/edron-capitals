@@ -1,0 +1,146 @@
+@import '../styles/variables.css';
+
+/* === RESET === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background: var(--cl-bg);
+  color: var(--cl-text-primary);
+  font-family: var(--font-kanit), sans-serif;
+  font-weight: var(--font-weight-regular);
+  line-height: 1.6;
+  transition: background var(--transition-slow), color var(--transition-slow);
+}
+
+/* === ENLACES Y LISTAS === */
+a,
+li {
+  text-decoration: none;
+  list-style: none;
+  color: var(--cl-text-secondary);
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--cl-primary-500);
+}
+
+/* === BOTONES === */
+button {
+  background: var(--cl-primary-500);
+  color: var(--cl-text-invert);
+  border: none;
+  border-radius: var(--rd-md);
+  padding: 0.75rem 1.25rem;
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: background var(--transition-normal), transform var(--transition-fast);
+}
+
+button:hover {
+  background: var(--cl-primary-700);
+  transform: translateY(-1px);
+}
+
+button:active {
+  background: var(--cl-primary-800);
+  transform: translateY(1px);
+}
+
+/* === CONTENEDORES Y UTILIDADES === */
+.container {
+  width: 100%;
+  /* max-width: 1200px; */
+  margin: 0 auto;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+}
+
+/* === TARJETAS === */
+.card {
+  background: var(--cl-bg-secondary);
+  border: 1px solid var(--cl-border);
+  border-radius: var(--rd-lg);
+  box-shadow: var(--sh-sm);
+  padding: 1.5rem;
+  transition: box-shadow var(--transition-normal), transform var(--transition-fast);
+}
+
+.card:hover {
+  box-shadow: var(--sh-md);
+  transform: translateY(-2px);
+}
+/* === BOTONES VARIANTES === */
+.btn-primary {
+  background: var(--cl-primary-600);
+  color: var(--cl-text-invert);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--rd-md);
+  font-weight: var(--font-weight-medium);
+  transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.btn-primary:hover {
+  background: var(--cl-primary-500);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--cl-primary-400);
+  border: 1px solid var(--cl-primary-700);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--rd-md);
+  margin-left: 1rem;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.btn-secondary:hover {
+  background: var(--cl-primary-900);
+  color: var(--cl-text-invert);
+}
+
+/* === TARJETAS === */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+.card {
+  flex: 1 1 250px;
+  text-align: center;
+}
+
+/* === TEXTO === */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--cl-text-primary);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: 0.5rem;
+}
+
+h1, h2, h3 {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+p {
+  color: var(--cl-text-secondary);
+  margin-bottom: 1rem;
+}
