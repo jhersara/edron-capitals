@@ -1,3 +1,4 @@
+/* === BASE CONTAINER === */
 .container {
   width: 100%;
   margin: 0 auto;
@@ -27,8 +28,8 @@
 /* === LOGO === */
 .logo-wrapper {
   position: relative;
-  width: 180px;     /* Tamaño fijo evita el salto */
-  height: 120px;     /* Mantiene proporción */
+  width: 180px;
+  height: 120px;
   overflow: hidden;
 }
 
@@ -37,9 +38,8 @@
   opacity: 0;
   transform: scale(0.96);
   animation: fadeInLogo 0.5s ease forwards;
-  filter: brightness(1.35) contrast(1.15); /*  más claro y definido */
+  filter: brightness(1.35) contrast(1.15);
 }
-
 
 @keyframes fadeInLogo {
   to {
@@ -111,19 +111,24 @@
   transition: all var(--transition-fast);
 }
 
-
-
 /* === HERO SECTION === */
-
 .hero {
-  height: 100vh;
+  height: 90vh;
   width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
   background-image: url('/images/hero-finance.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  filter: brightness(0.6);
-  position: relative;
+  filter: brightness(0.3);
+  z-index: 1;
 }
 
 .hero .hero_content {
@@ -133,18 +138,17 @@
   height: 100%;
   max-width: 1300px;
   margin: 0 auto;
-  /* background-color: var(--cl-bg-alt); */
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 1rem;
   padding: 6rem 2rem;
   margin-top: 1rem;
-
 }
 
-.hero .hero_content .marker{
-  background:#ffea003a;
+/* === HERO ELEMENTOS === */
+.hero .hero_content .marker {
+  background: #ffea003a;
   height: 35px;
   width: 300px;
   padding: 20px;
@@ -153,63 +157,87 @@
   text-align: center;
   display: flex;
   align-items: center;
-  align-content: center;
   justify-content: center;
   gap: 5px;
   color: var(--cl-primary-500);
-  box-shadow: var(--sh-md);
-
+  box-shadow: 0 0 20px rgba(255, 234, 0, 0.4);
 }
 
 .hero .hero_content h1 {
-  font-size: 4.2rem;
+  font-size: clamp(2.2rem, 6vw, 4.2rem);
   color: var(--cl-text);
-  line-height: 1;
+  line-height: 1.1;
 }
 
 .hero .hero_content h1 .strong {
   color: var(--cl-primary-500);
 }
 
-.hero .hero_content .text{
+.hero .hero_content .text {
   font-size: 19px;
+  max-width: 700px;
+  line-height: 1.4;
 }
 
-.hero .hero_content .btn_content{
+.hero .hero_content .btn_content {
   display: flex;
   align-items: center;
-  align-content: center;
   gap: 15px;
   text-align: center;
   width: 40%;
+  flex-wrap: wrap;
 }
 
-.hero .hero_content .btn_content .btn{
+.hero .hero_content .btn_content .btn {
   text-align: center;
   padding: 13px;
   color: var(--cl-text);
   border: 2px solid var(--cl-bd);
   border-radius: var(--rd-lg);
+  cursor: pointer;
+  font-size: 1.05rem;
+  transition: all var(--transition-normal);
 }
 
-.hero .hero_content .btn_content .btn:hover{
-  box-shadow: var(--sh-md);
+/* === BOTONES ACTIVOS === */
+.hero .hero_content .btn_content .actived {
+  background: var(--cl-primary-500);
+  color: var(--cl-text-invert);
+  border: none;
+  box-shadow: 0 0 20px rgba(255, 234, 0, 0.3);
 }
 
-.hero .hero_content .btn_content .actived{
-  background: var(--cl-primary-700);
+.hero .hero_content .btn_content .actived:hover {
+  box-shadow: 0 0 30px rgba(255, 234, 0, 0.6);
+  transform: scale(1.03);
 }
 
-.hero .hero_content .btn_content .on_actived{
-  background: #bdbcbc3d;
+.hero .hero_content .btn_content .on_actived {
+  background: transparent;
+  color: var(--cl-primary-500);
+  border: 2px solid var(--cl-primary-500);
 }
 
-/* === RESPONSIVE === */
-@media (max-width: 900px) {
-  .navigate {
-    display: none;
+.hero .hero_content .btn_content .on_actived:hover {
+  background: var(--cl-primary-500);
+  color: var(--cl-text-invert);
+  box-shadow: 0 0 20px rgba(255, 234, 0, 0.4);
+  transform: scale(1.03);
+}
+
+/* === RESPONSIVE GLOBAL === */
+@media (max-width: 1200px) {
+  .hero .hero_content {
+    padding: 4rem 2rem;
   }
 
+  .hero .hero_content .btn_content {
+    width: 60%;
+  }
+}
+
+@media (max-width: 900px) {
+  .navigate,
   .bt-login {
     display: none;
   }
@@ -217,9 +245,7 @@
   .menu-toggle {
     display: flex;
   }
-}
 
-@media (max-width: 900px) {
   .navbar.active .navigate {
     display: block;
     position: absolute;
@@ -236,5 +262,74 @@
     gap: 1rem;
     padding: 1.5rem;
     text-align: center;
+  }
+
+  .hero {
+    height: auto;
+    padding: 6rem 0;
+  }
+
+  .hero .hero_content {
+    text-align: center;
+    align-items: center;
+  }
+
+  .hero .hero_content .btn_content {
+    flex-direction: column;
+    width: 80%;
+  }
+
+  .hero .hero_content .btn_content .btn {
+    width: 100%;
+  }
+
+  .hero .hero_content .marker {
+    width: auto;
+    font-size: 15px;
+    padding: 12px 18px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero::before {
+    background-position: center top;
+  }
+
+  .hero .hero_content {
+    padding: 4rem 1.5rem;
+  }
+
+  .hero .hero_content h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero .hero_content .text {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .hero .hero_content .btn_content {
+    width: 100%;
+    gap: 10px;
+  }
+
+  .hero .hero_content .marker {
+    font-size: 14px;
+    padding: 10px 14px;
+  }
+}
+
+@media (max-width: 400px) {
+  .hero .hero_content h1 {
+    font-size: 1.9rem;
+  }
+
+  .hero .hero_content .text {
+    font-size: 15px;
+  }
+
+  .hero .hero_content .btn_content .btn {
+    padding: 12px;
+    font-size: 15px;
   }
 }
