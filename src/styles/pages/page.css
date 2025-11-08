@@ -2,6 +2,8 @@
   width: 100%;
   margin: 0 auto;
   background: var(--cl-bg);
+  color: var(--cl-text);
+  font-family: 'Kanit', sans-serif;
 }
 
 /* === NAVBAR === */
@@ -15,8 +17,11 @@
   background: var(--cl-bg-alt);
   border-bottom: 1px solid var(--cl-border);
   box-shadow: var(--sh-sm);
-  position: relative;
-  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  backdrop-filter: blur(12px);
 }
 
 /* === LOGO === */
@@ -30,9 +35,9 @@
 .home_logo {
   object-fit: contain;
   opacity: 0;
-  transform: scale(0.98);
+  transform: scale(0.96);
   animation: fadeInLogo 0.5s ease forwards;
-  filter: brightness(1.25) contrast(1.1); /* 💡 más claro y definido */
+  filter: brightness(1.35) contrast(1.15); /*  más claro y definido */
 }
 
 
@@ -52,7 +57,7 @@
 
 .link a {
   color: var(--cl-text-secondary);
-  font-weight: var(--font-weight-medium);
+  font-weight: 500;
   transition: color var(--transition-fast), border-bottom var(--transition-fast);
   font-size: 1.3rem;
 }
@@ -60,6 +65,7 @@
 .link a:hover {
   color: var(--cl-primary-500);
   border-bottom: 2px solid var(--cl-primary-500);
+  transform: scale(1.03);
 }
 
 /* === BOTÓN LOGIN === */
@@ -75,7 +81,6 @@
   transition: background var(--transition-fast), transform var(--transition-fast);
   text-align: center;
   display: flex;
-  justify-content: center;
   align-items: center;
   gap: var(--space-md);
   height: 50px;
@@ -84,7 +89,7 @@
 
 .bt-login button.active:hover {
   background: var(--cl-primary-500);
-  transform: translateY(-1px);
+  transform: scale(1.03);
 }
 
 /* === MENU TOGGLE (para móviles) === */
@@ -106,50 +111,24 @@
   transition: all var(--transition-fast);
 }
 
-/* === RESPONSIVE === */
-@media (max-width: 900px) {
-  .navigate {
-    display: none;
-  }
-
-  .bt-login {
-    display: none;
-  }
-
-  .menu-toggle {
-    display: flex;
-  }
-}
-
-@media (max-width: 900px) {
-  .navbar.active .navigate {
-    display: block;
-    position: absolute;
-    top: 90px;
-    left: 0;
-    width: 100%;
-    background: var(--cl-bg-secondary);
-    border-top: 1px solid var(--cl-border);
-    box-shadow: var(--sh-md);
-  }
-
-  .navbar.active .list {
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1.5rem;
-    text-align: center;
-  }
-}
 
 
 /* === HERO SECTION === */
 
 .hero {
-  height: 820px;
+  height: 100vh;
   width: 100%;
+  background-image: url('/images/hero-finance.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: brightness(0.6);
+  position: relative;
 }
 
 .hero .hero_content {
+  position: relative;
+  z-index: 2;
   width: 100%;
   height: 100%;
   max-width: 1300px;
@@ -157,9 +136,10 @@
   /* background-color: var(--cl-bg-alt); */
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  padding: 5rem;
-  margin-top: 2rem;
+  justify-content: center;
+  gap: 1rem;
+  padding: 6rem 2rem;
+  margin-top: 1rem;
 
 }
 
@@ -182,7 +162,7 @@
 }
 
 .hero .hero_content h1 {
-  font-size: 4.5rem;
+  font-size: 4.2rem;
   color: var(--cl-text);
   line-height: 1;
 }
@@ -222,4 +202,39 @@
 
 .hero .hero_content .btn_content .on_actived{
   background: #bdbcbc3d;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 900px) {
+  .navigate {
+    display: none;
+  }
+
+  .bt-login {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+}
+
+@media (max-width: 900px) {
+  .navbar.active .navigate {
+    display: block;
+    position: absolute;
+    top: 90px;
+    left: 0;
+    width: 100%;
+    background: var(--cl-bg-secondary);
+    border-top: 1px solid var(--cl-border);
+    box-shadow: var(--sh-md);
+  }
+
+  .navbar.active .list {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem;
+    text-align: center;
+  }
 }
