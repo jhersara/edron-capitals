@@ -336,3 +336,74 @@
     font-size: 15px;
   }
 }
+
+/* === INFO DATA === */
+.info{
+  width: 100%;
+  background: var(--cl-gr);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.info_data{
+  max-width: 1300px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.card_data {
+  padding: 1rem;
+  text-align: center;
+}
+
+.card_data h2{
+  color: var(--cl-text-primary);
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.card_data p {
+  color: var(--cl-text-secondary);
+}
+
+.carousel {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.track {
+  display: flex;
+  width: max-content; /* 🔥 ancho dinámico basado en contenido */
+  animation: scroll 40s linear infinite;
+}
+
+.cards {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2em;
+}
+
+.cards img {
+  height: 4em;
+  opacity: 0.8;
+  filter: grayscale(100%);
+  transition: all 0.3s ease;
+}
+
+.cards img:hover {
+  opacity: 1;
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+
+/* Animación continua sin reinicio visual */
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}

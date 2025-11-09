@@ -21,6 +21,7 @@
   --cl-border: #2a2a2a;        /* bordes y divisores */
   --cl-bd: #2A2A2A;     /* líneas sutiles */
   --cl-shadow: rgba(0, 0, 0, 0.5);
+  --cl-gr: #333333;
 
   /* ─── TIPOGRAFÍA ────────────────────────────────────── */
   --cl-text: #EAEAEA;       /* texto principal */

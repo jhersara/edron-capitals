@@ -115,7 +115,7 @@ button:active {
 }
 
 /* === TARJETAS === */
-.cards {
+.cardis {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

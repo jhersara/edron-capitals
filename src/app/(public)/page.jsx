@@ -70,7 +70,7 @@ export default function HomePage() {
         </div>
       </section>
       {/** Seccion de datos comerciales */}
-      <section>
+      <section className='info'>
         <div className="info_data">
           <div className="card_data">
             <h2>$150M+</h2>
@@ -82,11 +82,39 @@ export default function HomePage() {
           </div>
           <div className="card_data">
             <h2>500+</h2>
-            Inversores Activosa 
-            
+            <p>Inversores Activos</p>
           </div>
-          <div className="card_data"></div>
+          <div className="card_data">
+            <h2>5 Años</h2>
+            <p>Operando en el Mercado</p>
+          </div>
         </div>
+        {/** Secion del carrousel */}
+        <div className="carousel">
+          <div className="track">
+          {/* Bloque 1 */}
+            <div className="cards"><img src="/images/amazon.svg" alt="Amazon" /></div>
+            <div className="cards"><img src="/images/BlackRock.svg" alt="BlackRock" /></div>
+            <div className="cards"><img src="/images/Cibest.svg" alt="Cibest" /></div>
+            <div className="cards"><img src="/images/coca.svg" alt="Coca-Cola" /></div>
+            <div className="cards"><img src="/images/Exness.svg" alt="Exness" /></div>
+            <div className="cards"><img src="/images/Google.svg" alt="Google" /></div>
+            <div className="cards"><img src="/images/Meta.svg" alt="Meta" /></div>
+            <div className="cards"><img src="/images/NVIDIA.svg" alt="NVIDIA" /></div>
+            <div className="cards"><img src="/images/Trii.svg" alt="Trii" /></div>
+
+            {/* Bloque duplicado para loop perfecto */}
+            <div className="cards"><img src="/images/amazon.svg" alt="Amazon" /></div>
+            <div className="cards"><img src="/images/BlackRock.svg" alt="BlackRock" /></div>
+            <div className="cards"><img src="/images/Cibest.svg" alt="Cibest" /></div>
+            <div className="cards"><img src="/images/coca.svg" alt="Coca-Cola" /></div>
+            <div className="cards"><img src="/images/Exness.svg" alt="Exness" /></div>
+            <div className="cards"><img src="/images/Google.svg" alt="Google" /></div>
+            <div className="cards"><img src="/images/Meta.svg" alt="Meta" /></div>
+            <div className="cards"><img src="/images/NVIDIA.svg" alt="NVIDIA" /></div>
+            <div className="cards"><img src="/images/Trii.svg" alt="Trii" /></div>
+          </div>
+        </div>  
       </section>
     
     </div>
