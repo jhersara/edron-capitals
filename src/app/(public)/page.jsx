@@ -62,13 +62,33 @@ export default function HomePage() {
             Fondo de Invercion Registrado
           </div>
           <h1>Invierte con <span className="strong">Confianza</span><br />y Transparencia</h1>
-          <p className="text">Accede  a oportunidades de invercion profecionales con reportes diarios, seguridad <br />institucional y rendimientos superiores al mercado.</p>
+          <p className="text">Accede  a oportunidades de invercion profecionales con reportes diarios, seguridad institucional y rendimientos superiores al mercado.</p>
           <div className="btn_content">
             <a href="/" className="btn actived">Comienza a invertir <RiArrowRightLine /></a>
             <a href="/" className="btn on_actived">Conoce mas</a>
           </div>
         </div>
       </section>
+      {/** Seccion de datos comerciales */}
+      <section>
+        <div className="info_data">
+          <div className="card_data">
+            <h2>$150M+</h2>
+            <p>Activos Bajo Gestion</p>
+          </div>
+          <div className="card_data">
+            <h2>12.8%</h2>
+            <p>Rentabilidad Anual Promedio</p>
+          </div>
+          <div className="card_data">
+            <h2>500+</h2>
+            Inversores Activosa 
+            
+          </div>
+          <div className="card_data"></div>
+        </div>
+      </section>
+    
     </div>
   )
 }

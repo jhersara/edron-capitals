@@ -39,6 +39,7 @@
   transform: scale(0.96);
   animation: fadeInLogo 0.5s ease forwards;
   filter: brightness(1.35) contrast(1.15);
+  box-shadow: 0 0 20px rgba(255, 234, 0, 0.3);
 }
 
 @keyframes fadeInLogo {
@@ -70,7 +71,7 @@
 
 /* === BOTÓN LOGIN === */
 .bt-login button.active {
-  background: var(--cl-primary-600);
+  background: var(--cl-primary-500);
   color: var(--cl-text-invert);
   padding: 0.7rem 1.3rem;
   border: none;
@@ -90,6 +91,8 @@
 .bt-login button.active:hover {
   background: var(--cl-primary-500);
   transform: scale(1.03);
+  box-shadow: 0 0 20px rgba(255, 234, 0, 0.3);
+
 }
 
 /* === MENU TOGGLE (para móviles) === */
