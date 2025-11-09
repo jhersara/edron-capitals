@@ -69,6 +69,26 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      {/** Seccion de datos comerciales */}
+      <section>
+        <div className="info_data">
+          <div className="card_data">
+            <h2>$150M+</h2>
+            <p>Activos Bajo Gestion</p>
+          </div>
+          <div className="card_data">
+            <h2>12.8%</h2>
+            <p>Rentabilidad Anual Promedio</p>
+          </div>
+          <div className="card_data">
+            <h2>500+</h2>
+            Inversores Activosa 
+            
+          </div>
+          <div className="card_data"></div>
+        </div>
+      </section>
+    
     </div>
   )
 }
