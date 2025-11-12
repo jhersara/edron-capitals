@@ -1,7 +1,10 @@
 import React from 'react'
+import Link from 'next/link'
 import { RiMedalLine, RiArrowRightLine} from 'react-icons/ri'
 import '@/styles/pages/page.css'
 import Image from 'next/image'
+import WhyChoose from '@/components/ui/WhyChoose'
+import BenefitsSection from '@/components/ui/BenefitsSection'
 
 export default function HomePage() {
   return (
@@ -9,7 +12,7 @@ export default function HomePage() {
       <nav className="navbar">
         {/* === LOGO === */}
         <div className="logo">
-          <a href="/">
+          <Link href="/">
             <div className="logo-wrapper">
               <Image
                 src="/images/home_logo.png"
@@ -19,16 +22,16 @@ export default function HomePage() {
                 className="home_logo"
               />
             </div>
-          </a>
+          </Link>
         </div>
 
         {/* === NAVEGACIÓN === */}
         <div className="navigate">
           <ul className="list">
-            <li className="link"><a className='li' href="/">Inicio</a></li>
-            <li className="link"><a className='li' href="/">Nosotros</a></li>
-            <li className="link"><a className='li' href="/">Servicios</a></li>
-            <li className="link"><a className='li' href="/">Contacto</a></li>
+            <li className="link"><Link className='li' href="/">Inicio</Link></li>
+            <li className="link"><Link className='li' href="/">Nosotros</Link></li>
+            <li className="link"><Link className='li' href="/">Servicios</Link></li>
+            <li className="link"><Link className='li' href="/">Contacto</Link></li>
           </ul>
         </div>
 
@@ -64,8 +67,8 @@ export default function HomePage() {
           <h1>Invierte con <span className="strong">Confianza</span><br />y Transparencia</h1>
           <p className="text">Accede  a oportunidades de invercion profecionales con reportes diarios, seguridad institucional y rendimientos superiores al mercado.</p>
           <div className="btn_content">
-            <a href="/" className="btn actived">Comienza a invertir <RiArrowRightLine /></a>
-            <a href="/" className="btn on_actived">Conoce mas</a>
+            <Link href="/" className="btn actived">Comienza a invertir <RiArrowRightLine /></Link>
+            <Link href="/" className="btn on_actived">Conoce mas</Link>
           </div>
         </div>
       </section>
@@ -116,6 +119,11 @@ export default function HomePage() {
           </div>
         </div>  
       </section>
+      {/**Por que elegir Edron Capitals */}
+      <WhyChoose/>
+
+      {/**Beneficios de Edron Capitals */}
+      <BenefitsSection/>
     
     </div>
   )
