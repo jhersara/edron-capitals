@@ -533,7 +533,7 @@
 
 .benefits-wrapper {
   width: 100%;
-  padding: 6rem 10%;
+  padding: 1rem 13%;
   background: var(--cl-bg);
   color: var(--cl-text-primary);
 }
@@ -618,6 +618,7 @@
   padding: 2rem;
   box-shadow: var(--sh-lg);
   overflow: hidden;
+  height: 80%;
 }
 
 .image-frame::after {
@@ -634,7 +635,7 @@
 
 .benefit-img {
   width: 100%;
-  height: auto;
+  height: 60%;
   border-radius: var(--rd-lg);
   transition: transform var(--transition-slow);
 }
