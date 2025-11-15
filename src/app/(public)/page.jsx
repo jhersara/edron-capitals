@@ -1,10 +1,14 @@
+"use client";
+
 import React from 'react'
 import Link from 'next/link'
+import { motion } from 'framer-motion'
 import { RiMedalLine, RiArrowRightLine} from 'react-icons/ri'
 import '@/styles/pages/page.css'
 import Image from 'next/image'
 import WhyChoose from '@/components/ui/WhyChoose'
 import BenefitsSection from '@/components/ui/BenefitsSection'
+import AppDownloadSection from '@/components/ui/AppDownloadSection';
 
 export default function HomePage() {
   return (
@@ -124,6 +128,17 @@ export default function HomePage() {
 
       {/**Beneficios de Edron Capitals */}
       <BenefitsSection/>
+      <section className="if">
+        <motion.h2 className="title" 
+          initial={{opacity:0, y: 40}} 
+          whileInView={{ opacity: 1, y: 0 }} 
+          transition={{ duration: 0.7, ease: "easeOut" }} 
+          viewport={{ once: true }}
+        >
+          YA SON MÁS DE 600.000 COLOMBIANOS <br /> 🇨🇴 INVIRTIENDO EN EDRON CAPITAL
+        </motion.h2>
+      </section>
+      <AppDownloadSection/>
     
     </div>
   )
