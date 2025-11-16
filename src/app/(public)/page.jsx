@@ -9,6 +9,7 @@ import Image from 'next/image'
 import WhyChoose from '@/components/ui/WhyChoose'
 import BenefitsSection from '@/components/ui/BenefitsSection'
 import AppDownloadSection from '@/components/ui/AppDownloadSection';
+import Footer from '@/components/ui/Footer';
 
 export default function HomePage() {
   return (
@@ -139,6 +140,9 @@ export default function HomePage() {
         </motion.h2>
       </section>
       <AppDownloadSection/>
+
+      {/** Secion del Footer */}
+      <Footer/>
     
     </div>
   )
