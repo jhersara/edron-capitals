@@ -42,7 +42,7 @@ export default function HomePage() {
 
         {/* === BOTÓN LOGIN === */}
         <div className="bt-login">
-          <button className="active">
+          <Link href='/login' className="Link btn active">
             <Image
               src='/images/darklogo.png'
               alt='Logo'
@@ -50,7 +50,7 @@ export default function HomePage() {
               width={30}
             />
             Ingresar
-          </button>
+          </Link>
         </div>
 
         {/* === MENÚ MÓVIL === */}
@@ -72,7 +72,7 @@ export default function HomePage() {
           <h1>Invierte con <span className="strong">Confianza</span><br />y Transparencia</h1>
           <p className="text">Accede  a oportunidades de invercion profecionales con reportes diarios, seguridad institucional y rendimientos superiores al mercado.</p>
           <div className="btn_content">
-            <Link href="/" className="btn actived">Comienza a invertir <RiArrowRightLine /></Link>
+            <Link href="/login" className="btn actived">Comienza a invertir <RiArrowRightLine /></Link>
             <Link href="/" className="btn on_actived">Conoce mas</Link>
           </div>
         </div>

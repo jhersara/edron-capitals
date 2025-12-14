@@ -52,6 +52,27 @@ button:active {
   transform: translateY(1px);
 }
 
+.Link {
+  background: var(--cl-primary-500);
+  color: var(--cl-text-invert);
+  border: none;
+  border-radius: var(--rd-md);
+  padding: 0.75rem 1.25rem;
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: background var(--transition-normal), transform var(--transition-fast);
+}
+
+.Link:hover {
+  background: var(--cl-primary-700);
+  transform: translateY(-1px);
+}
+
+.Link:active {
+  background: var(--cl-primary-800);
+  transform: translateY(1px);
+}
+
 /* === CONTENEDORES Y UTILIDADES === */
 .container {
   width: 100%;

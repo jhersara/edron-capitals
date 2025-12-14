@@ -83,7 +83,7 @@ export default function WhyChoose() {
       </div>
 
       <div className="why-cta">
-        <Link href="/" className="btn actived">Comienza a invertir <RiArrowRightLine /></Link>
+        <Link href="/login" className="btn actived">Comienza a invertir <RiArrowRightLine /></Link>
         
       </div>
     </section>
