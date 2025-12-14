@@ -1,0 +1,138 @@
+/* === FOOTER SECION === */
+.footer {
+  width: 100%;
+  padding: 4rem 2rem;
+  background: var(--cl-bg-secondary);
+  margin-top: 4rem;
+}
+
+.footer-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 4rem;
+}
+
+/* -------- COLUMNS -------- */
+.footer-columns {
+  display: flex;
+  gap: 4rem;
+}
+
+.footer-col h4 {
+  margin-bottom: 1rem;
+  color: var(--cl-primary-500);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.footer-col a {
+  display: block;
+  color: var(--cl-text-muted);
+  margin-bottom: 0.6rem;
+  transition: 0.25s ease;
+}
+
+.footer-col a:hover {
+  color: var(--cl-primary-400);
+}
+
+/* -------- NEWSLETTER -------- */
+.footer-news h4 {
+  color: var(--cl-text);
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.footer-news p {
+  color: var(--cl-text-soft);
+  margin-bottom: 1.2rem;
+}
+
+.email-box {
+  display: flex;
+  align-items: center;
+  background: var(--cl-bg);
+  border: 1px solid var(--cl-border);
+  padding: 0.8rem 1rem;
+  border-radius: var(--rd-md);
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.mail-icon {
+  opacity: 0.7;
+}
+
+.email-box input {
+  width: 100%;
+  background: transparent;
+  outline: none;
+  border: none;
+  color: var(--cl-text);
+}
+
+.news-btn {
+  background: var(--cl-primary-500);
+  padding: 0.8rem 2rem;
+  border: none;
+  color: #000;
+  font-weight: 600;
+  border-radius: var(--rd-full);
+  cursor: pointer;
+  transition: 0.25s ease;
+  box-shadow: var(--sh-md);
+}
+
+.news-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--sh-lg);
+}
+
+/* -------- FOOTER BOTTOM -------- */
+.footer-bottom {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--cl-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--cl-text);
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.social-icons a {
+  font-size: 1.4rem;
+  color: var(--cl-text-muted);
+  margin-left: 1rem;
+  transition: 0.25s ease;
+}
+
+.social-icons a:hover {
+  color: var(--cl-primary-500);
+}
+
+/* -------- Responsive -------- */
+@media (max-width: 900px) {
+  .footer-container {
+    flex-direction: column;
+  }
+
+  .footer-columns {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}

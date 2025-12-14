@@ -3,6 +3,7 @@ import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import Footer from '@/components/ui/Footer';
+import '@/styles/pages/404.css'
 
 
 export default function Custom404() {
