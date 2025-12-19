@@ -1,0 +1,28 @@
+.register {
+min-height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+
+.register__step {
+max-width: 420px;
+width: 100%;
+}
+
+
+.register__progress {
+position: fixed;
+top: 0;
+left: 0;
+height: 4px;
+width: 100%;
+background: var(--cl-border);
+}
+
+
+.register__progress div {
+height: 100%;
+background: var(--cl-primary-500);
+}

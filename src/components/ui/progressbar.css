@@ -1,0 +1,17 @@
+.progress {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 2rem;
+}
+
+.progress__step {
+  flex: 1;
+  height: 6px;
+  background: var(--cl-border);
+  border-radius: 4px;
+  transition: background var(--transition-normal);
+}
+
+.progress__step.active {
+  background: var(--cl-primary-500);
+}

@@ -18,6 +18,54 @@
 }
 
 /* ─────────────────────────────────────────────
+   PARTÍCULAS DE FONDO (CSS PURO)
+───────────────────────────────────────────── */
+.nf-container::before,
+.nf-container::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-repeat: repeat;
+  opacity: 0.35;
+}
+
+/* Capa 1: partículas grandes */
+.nf-container::before {
+  background-image:
+    radial-gradient(circle, var(--cl-primary-500) 1px, transparent 1px);
+  background-size: 120px 120px;
+  animation: nf-float 38s linear infinite;
+}
+
+/* Capa 2: partículas pequeñas */
+.nf-container::after {
+  background-image:
+    radial-gradient(circle, var(--cl-primary-400) 0.8px, transparent 1px);
+  background-size: 80px 80px;
+  animation: nf-float-reverse 55s linear infinite;
+}
+
+/* Movimiento flotante */
+@keyframes nf-float {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-120px);
+  }
+}
+
+@keyframes nf-float-reverse {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(160px);
+  }
+}
+
+/* ─────────────────────────────────────────────
    TITULO 404
 ───────────────────────────────────────────── */
 .nf-title {
@@ -115,3 +163,4 @@
     font-size: 0.95rem;
   }
 }
+

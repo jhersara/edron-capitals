@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import '@/styles/ui/footer.css'
+import Link from "next/link";
 
 export default function Footer() {
   const [email, setEmail] = useState("");
@@ -53,7 +54,7 @@ export default function Footer() {
             />
           </div>
 
-          <button className="news-btn">Registrarme</button>
+          <Link  href='register' className="btn news-btn">Registrarme</Link>
         </motion.div>
       </div>
 

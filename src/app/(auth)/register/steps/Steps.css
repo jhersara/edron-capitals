@@ -1,0 +1,32 @@
+.step {
+  max-width: 420px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.step input,
+.step select {
+  padding: 0.8rem;
+  background: var(--cl-bg-secondary);
+  border: 1px solid var(--cl-border);
+  border-radius: var(--rd-md);
+  color: var(--cl-text-primary);
+}
+
+.checkbox {
+  font-size: 0.85rem;
+  color: var(--cl-text-secondary);
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.center {
+  text-align: center;
+}
