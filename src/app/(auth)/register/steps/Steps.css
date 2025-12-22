@@ -30,3 +30,28 @@
 .center {
   text-align: center;
 }
+
+/* Error states */
+.error {
+  border-color: var(--cl-error) !important;
+}
+
+.error-message {
+  color: var(--cl-error);
+  font-size: 0.8rem;
+  margin-top: -0.5rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+/* Progress Bar específico del step */
+.progress-bar-container {
+  margin-bottom: var(--space-xl);
+}
+
+.progress-bar-step {
+  color: var(--cl-primary-500);
+  font-weight: var(--font-weight-medium);
+  font-size: 0.9rem;
+  margin-bottom: var(--space-xs);
+}
