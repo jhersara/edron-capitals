@@ -1,4 +1,5 @@
 'use client'
+import Link from "next/link"
 
 export default function Step9Result() {
   return (
@@ -9,7 +10,7 @@ export default function Step9Result() {
         Te notificaremos cuando puedas invertir.
       </p>
 
-      <button className="btn-primary">Ir al dashboard</button>
+      <Link href='/onedash' className="btn-primary">Ir al dashboard</Link>
     </section>
   )
 }
