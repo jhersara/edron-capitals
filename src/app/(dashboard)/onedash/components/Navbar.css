@@ -1,0 +1,66 @@
+.navbar {
+  background: var(--cl-bg-alt);
+  width: 100px;
+  height: 100vh;
+  display: flex;
+}
+
+.nav-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 1rem 0;
+}
+
+/* 🔹 Sección superior */
+.nav-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.4rem;
+}
+
+/* 🔸 Sección inferior anclada */
+.nav-bottom {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  padding-bottom: 1rem;
+}
+
+.section {
+  width: 80px;
+  min-height: 48px;
+  padding: 0.4rem 0.2rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 0.25rem;
+  font-size: 0.65rem;
+  color: var(--cl-text-secondary);
+
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.section svg {
+  opacity: 0.8;
+}
+
+.section:hover {
+  background: var(--cl-bg-secondary);
+  color: var(--cl-text-primary);
+}
+
+.section:hover svg {
+  opacity: 1;
+}
+
+.section.logout {
+  color: var(--cl-error);
+}
