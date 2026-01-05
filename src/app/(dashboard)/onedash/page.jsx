@@ -3,12 +3,14 @@
 import MainContent from "./components/MainContent";
 import Navbar from "./components/Navbar";
 import '@/app/(dashboard)/onedash/page.css'
+import { useState } from "react";
 
-export default function OneDash({ children }){
+export default function OneDash(){
+    const [section, setSection] = useState('home')
     return(
         <div className="dashboard">
-            <Navbar/>
-            <MainContent/>
+            <Navbar onChange={setSection}/>
+            <MainContent section={section}/>
         </div>
     )
 }
