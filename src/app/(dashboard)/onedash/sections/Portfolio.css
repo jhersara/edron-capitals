@@ -1,0 +1,115 @@
+.portfolio {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+/* HEADER */
+.portfolio-header h1 {
+  font-size: 1.5rem;
+}
+
+.portfolio-header span {
+  font-size: 0.75rem;
+  color: var(--cl-text-muted);
+}
+
+/* BAR */
+.portfolio-bar {
+  height: 8px;
+  background: var(--cl-bg-alt);
+  border-radius: 999px;
+  overflow: hidden;
+  display: flex;
+}
+
+.portfolio-bar .available {
+  width: 8%;
+  background: var(--cl-text-muted);
+}
+
+.portfolio-bar .invested {
+  width: 92%;
+  background: var(--cl-success);
+}
+
+/* BALANCES */
+.portfolio-balances {
+  display: flex;
+  gap: var(--space-xl);
+}
+
+.portfolio-balances span {
+  font-size: 0.75rem;
+  color: var(--cl-text-muted);
+}
+
+/* PRODUCTS */
+.portfolio-products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-lg);
+}
+
+.product {
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  background: var(--cl-bg-alt);
+  cursor: pointer;
+}
+
+.product.active {
+  outline: 1px solid var(--cl-success);
+}
+
+/* PERFORMANCE */
+.portfolio-performance span {
+  font-size: 0.75rem;
+  color: var(--cl-text-muted);
+}
+
+.portfolio-performance h3 {
+  margin: 0.25rem 0;
+}
+
+.positive {
+  color: var(--cl-success);
+}
+
+/* BOTTOM */
+.portfolio-bottom {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--space-xl);
+}
+
+/* CHART */
+.chart-placeholder {
+  background: var(--cl-bg-alt);
+  border-radius: var(--radius-lg);
+  height: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--cl-text-muted);
+}
+
+/* COMPOSITION */
+.composition {
+  background: var(--cl-bg-alt);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  text-align: center;
+}
+
+.donut {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 10px solid var(--cl-success);
+  margin: var(--space-md) auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

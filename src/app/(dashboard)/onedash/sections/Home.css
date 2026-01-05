@@ -1,0 +1,85 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+/* HEADER */
+.home-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.home-header h1 {
+  font-size: 1.6rem;
+}
+
+.home-header p {
+  margin-top: 0.25rem;
+}
+
+/* KPIs */
+.home-kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-lg);
+}
+
+.kpi span {
+  font-size: 0.75rem;
+  color: var(--cl-text-muted);
+}
+
+.kpi h2 {
+  margin: 0.25rem 0;
+  font-size: 1.4rem;
+}
+
+/* STATUS */
+.home-status {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-lg);
+}
+
+.status-card {
+  display: flex;
+  gap: var(--space-md);
+  align-items: flex-start;
+}
+
+.status-card h3 {
+  font-size: 0.95rem;
+}
+
+/* ACTIONS */
+.home-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-lg);
+}
+
+.action {
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.action:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--sh-md);
+}
+
+/* ACTIVITY */
+.home-activity h3 {
+  margin-bottom: var(--space-md);
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-xl);
+  color: var(--cl-text-muted);
+}

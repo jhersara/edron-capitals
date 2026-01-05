@@ -9,7 +9,7 @@ export default function OneDash(){
     const [section, setSection] = useState('home')
     return(
         <div className="dashboard">
-            <Navbar onChange={setSection}/>
+            <Navbar onChange={setSection} activeSection={section}/>
             <MainContent section={section}/>
         </div>
     )
