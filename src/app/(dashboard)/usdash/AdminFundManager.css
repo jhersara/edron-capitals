@@ -1,0 +1,496 @@
+/* ===== PANEL DE ADMINISTRACIÓN ===== */
+.admin-manager {
+  background: var(--cl-bg);
+  padding: var(--space-xl);
+  min-height: 100vh;
+}
+
+.admin-manager h2 {
+  font-size: 1.8rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--cl-primary-500);
+  margin-bottom: var(--space-xl);
+  padding-bottom: var(--space-md);
+  border-bottom: 2px solid var(--cl-border);
+}
+
+/* ===== LISTA DE FONDOS ===== */
+.funds-list-admin {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+/* ===== TARJETA DE FONDO ===== */
+.fund-card-admin {
+  background: var(--cl-bg-alt);
+  border: 1px solid var(--cl-border);
+  border-radius: var(--rd-lg);
+  padding: var(--space-xl);
+  box-shadow: var(--sh-md);
+  transition: all var(--transition-fast);
+}
+
+.fund-card-admin:hover {
+  border-color: var(--cl-primary-500);
+  box-shadow: var(--sh-lg);
+}
+
+.fund-header-admin {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--cl-border);
+}
+
+.fund-header-admin h3 {
+  font-size: 1.4rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--cl-primary-500);
+}
+
+.risk-badge {
+  padding: 0.5rem 1rem;
+  border-radius: var(--rd-full);
+  font-size: 0.85rem;
+  font-weight: var(--font-weight-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.risk-badge.alto {
+  background: rgba(255, 234, 0, 0.15);
+  color: var(--cl-primary-500);
+  border: 1px solid var(--cl-primary-500);
+}
+
+.risk-badge.moderado {
+  background: rgba(230, 210, 0, 0.15);
+  color: #e6d200;
+  border: 1px solid #e6d200;
+}
+
+.risk-badge.muy-alto {
+  background: rgba(204, 186, 0, 0.15);
+  color: #ccba00;
+  border: 1px solid #ccba00;
+}
+
+/* ===== FORMULARIO GRID ===== */
+.fund-form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--cl-text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.form-group label::before {
+  content: '•';
+  color: var(--cl-primary-500);
+  font-size: 1.2rem;
+}
+
+.form-group input {
+  padding: 0.875rem 1rem;
+  background: var(--cl-bg);
+  border: 1px solid var(--cl-border);
+  border-radius: var(--rd-md);
+  color: var(--cl-text-primary);
+  font-size: 1rem;
+  transition: all var(--transition-fast);
+  font-family: var(--font-sans);
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--cl-primary-500);
+  box-shadow: 0 0 0 2px rgba(255, 234, 0, 0.1);
+}
+
+.form-group input::placeholder {
+  color: var(--cl-text-muted);
+  opacity: 0.7;
+}
+
+/* ===== HISTORIAL DE RENDIMIENTO ===== */
+.performance-history-admin {
+  background: var(--cl-bg);
+  border: 1px solid var(--cl-border);
+  border-radius: var(--rd-lg);
+  padding: var(--space-lg);
+  margin-bottom: var(--space-lg);
+}
+
+.performance-history-admin h4 {
+  font-size: 1.1rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--cl-primary-500);
+  margin-bottom: var(--space-md);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.performance-history-admin h4::before {
+  content: '📈';
+}
+
+.history-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: var(--space-md);
+  margin-top: var(--space-md);
+}
+
+.history-input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.history-input label {
+  font-size: 0.85rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--cl-text-secondary);
+  text-align: center;
+  background: var(--cl-bg-alt);
+  padding: 0.25rem;
+  border-radius: var(--rd-sm);
+}
+
+.history-input input {
+  padding: 0.75rem;
+  background: var(--cl-bg-alt);
+  border: 1px solid var(--cl-border);
+  border-radius: var(--rd-md);
+  color: var(--cl-text-primary);
+  text-align: center;
+  font-size: 0.95rem;
+  transition: all var(--transition-fast);
+}
+
+.history-input input:focus {
+  border-color: var(--cl-primary-500);
+  background: rgba(255, 234, 0, 0.05);
+}
+
+/* ===== COMPOSICIÓN ===== */
+.composition-admin {
+  background: var(--cl-bg);
+  border: 1px solid var(--cl-border);
+  border-radius: var(--rd-lg);
+  padding: var(--space-lg);
+  margin-bottom: var(--space-lg);
+}
+
+.composition-admin h4 {
+  font-size: 1.1rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--cl-primary-500);
+  margin-bottom: var(--space-md);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.composition-admin h4::before {
+  content: '📊';
+}
+
+.asset-input-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--space-md);
+  margin-bottom: var(--space-sm);
+}
+
+.asset-input-row input {
+  padding: 0.75rem;
+  background: var(--cl-bg-alt);
+  border: 1px solid var(--cl-border);
+  border-radius: var(--rd-md);
+  color: var(--cl-text-primary);
+  font-size: 0.95rem;
+  transition: all var(--transition-fast);
+}
+
+.asset-input-row input:focus {
+  border-color: var(--cl-primary-500);
+  background: rgba(255, 234, 0, 0.05);
+}
+
+.asset-input-row input[type="text"] {
+  font-weight: var(--font-weight-medium);
+}
+
+.asset-input-row input[type="number"] {
+  font-weight: var(--font-weight-bold);
+  text-align: center;
+}
+
+/* ===== BOTÓN GUARDAR ===== */
+.fund-card-admin .btn-primary {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: var(--font-weight-bold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: var(--space-lg);
+  background: var(--cl-primary-500);
+  border: none;
+  border-radius: var(--rd-md);
+  color: var(--cl-text-invert);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+}
+
+.fund-card-admin .btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.fund-card-admin .btn-primary:hover::before {
+  left: 100%;
+}
+
+.fund-card-admin .btn-primary:hover {
+  background: var(--cl-primary-400);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 234, 0, 0.3);
+}
+
+.fund-card-admin .btn-primary:active {
+  transform: translateY(0);
+}
+
+/* ===== SECCIÓN DE CREAR NUEVO FONDO ===== */
+.create-fund-section {
+  background: var(--cl-bg-alt);
+  border: 2px dashed var(--cl-border);
+  border-radius: var(--rd-lg);
+  padding: var(--space-xl);
+  margin-top: var(--space-xl);
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.create-fund-section:hover {
+  border-color: var(--cl-primary-500);
+  background: rgba(255, 234, 0, 0.05);
+  transform: translateY(-2px);
+}
+
+.create-fund-section h3 {
+  font-size: 1.3rem;
+  color: var(--cl-primary-500);
+  margin-bottom: var(--space-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.create-fund-section p {
+  color: var(--cl-text-secondary);
+  margin-bottom: var(--space-md);
+  font-size: 0.95rem;
+}
+
+.create-fund-btn {
+  padding: 0.875rem 1.5rem;
+  background: transparent;
+  border: 2px solid var(--cl-primary-500);
+  border-radius: var(--rd-md);
+  color: var(--cl-primary-500);
+  font-weight: var(--font-weight-bold);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.create-fund-btn:hover {
+  background: var(--cl-primary-500);
+  color: var(--cl-text-invert);
+}
+
+/* ===== ALERTAS Y ESTADOS ===== */
+.save-status {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--rd-md);
+  margin-top: var(--space-md);
+  font-size: 0.9rem;
+  font-weight: var(--font-weight-medium);
+}
+
+.save-status.saving {
+  background: rgba(255, 234, 0, 0.1);
+  border: 1px solid var(--cl-primary-500);
+  color: var(--cl-primary-500);
+}
+
+.save-status.success {
+  background: rgba(0, 255, 157, 0.1);
+  border: 1px solid #00ff9d;
+  color: #00ff9d;
+}
+
+.save-status.error {
+  background: rgba(255, 0, 110, 0.1);
+  border: 1px solid #ff006e;
+  color: #ff006e;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .admin-manager {
+    padding: var(--space-lg);
+  }
+  
+  .fund-form-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-md);
+  }
+  
+  .history-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-manager {
+    padding: var(--space-md);
+  }
+  
+  .fund-card-admin {
+    padding: var(--space-lg);
+  }
+  
+  .fund-header-admin {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+  }
+  
+  .fund-form-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .asset-input-row {
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+  
+  .history-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .history-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .create-fund-section {
+    padding: var(--space-lg);
+  }
+}
+
+/* ===== ANIMACIONES ===== */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.saving .btn-primary {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* ===== SCROLLBAR PERSONALIZADO ===== */
+.admin-manager::-webkit-scrollbar {
+  width: 8px;
+}
+
+.admin-manager::-webkit-scrollbar-track {
+  background: var(--cl-bg);
+  border-radius: var(--rd-full);
+}
+
+.admin-manager::-webkit-scrollbar-thumb {
+  background: var(--cl-primary-500);
+  border-radius: var(--rd-full);
+}
+
+.admin-manager::-webkit-scrollbar-thumb:hover {
+  background: var(--cl-primary-400);
+}
+
+/* ===== TOOLTIPS ===== */
+.form-group {
+  position: relative;
+}
+
+.form-group:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  background: var(--cl-bg-alt);
+  border: 1px solid var(--cl-border);
+  border-radius: var(--rd-md);
+  padding: 0.5rem 0.75rem;
+  font-size: 0.8rem;
+  color: var(--cl-text-secondary);
+  white-space: nowrap;
+  z-index: 10;
+  opacity: 0;
+  animation: fadeIn 0.2s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
