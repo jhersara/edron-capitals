@@ -1,5 +1,6 @@
 import { Kanit } from 'next/font/google'
 import "../styles/globals.css";
+import { FundsProvider } from '@/context/FundsContext';
 
 const Kani = Kanit({
   subsets: ['latin'],
@@ -20,7 +21,9 @@ export default function RootLayout({ children }) {
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" />
       </head>
       <body>
-        {children}
+        <FundsProvider>
+          {children}
+        </FundsProvider>
       </body>
     </html>
   );

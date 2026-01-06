@@ -1,56 +1,45 @@
 'use client'
 import { useState } from 'react'
-import { investmentFunds } from '@/data/investmentFunds'
+import { useFunds } from '@/context/FundsContext'
 import './AdminFundManager.css'
 
 export default function AdminFundManager() {
-  const [funds, setFunds] = useState(investmentFunds)
+  const { funds, updateFund, createFund, setFunds } = useFunds()
   const [saveStatus, setSaveStatus] = useState({})
+  const [newFundTemplate, setNewFundTemplate] = useState(null)
 
   const updateFundField = (fundId, field, value) => {
-    setFunds(prev => prev.map(fund => 
-      fund.id === fundId 
-        ? { 
-            ...fund, 
-            [field]: field.includes('Percentage') || field.includes('Value') || field.includes('Amount') 
-              ? parseFloat(value) || 0 
-              : value 
-          }
-        : fund
-    ))
+    updateFund(fundId, { [field]: value })
   }
 
   const updatePerformanceHistory = (fundId, monthIndex, value) => {
-    setFunds(prev => prev.map(fund => 
-      fund.id === fundId 
-        ? {
-            ...fund,
-            performanceHistory: fund.performanceHistory.map((item, idx) =>
-              idx === monthIndex ? { ...item, value: parseFloat(value) || 0 } : item
-            )
-          }
-        : fund
-    ))
+    const fund = funds.find(f => f.id === fundId)
+    if (!fund) return
+
+    const updatedHistory = [...fund.performanceHistory]
+    updatedHistory[monthIndex] = { 
+      ...updatedHistory[monthIndex], 
+      value: parseFloat(value) || 0 
+    }
+
+    updateFund(fundId, { performanceHistory: updatedHistory })
   }
 
   const updateComposition = (fundId, assetIndex, field, value) => {
-    setFunds(prev => prev.map(fund => 
-      fund.id === fundId 
-        ? {
-            ...fund,
-            composition: fund.composition.map((item, idx) =>
-              idx === assetIndex ? { 
-                ...item, 
-                [field]: field === 'percentage' ? parseFloat(value) || 0 : value 
-              } : item
-            )
-          }
-        : fund
-    ))
+    const fund = funds.find(f => f.id === fundId)
+    if (!fund) return
+
+    const updatedComposition = [...fund.composition]
+    updatedComposition[assetIndex] = { 
+      ...updatedComposition[assetIndex], 
+      [field]: field === 'percentage' ? parseFloat(value) || 0 : value 
+    }
+
+    updateFund(fundId, { composition: updatedComposition })
   }
 
   const addNewFund = () => {
-    const newFund = {
+    setNewFundTemplate({
       id: `fondo-nuevo-${Date.now()}`,
       name: 'Nuevo Fondo',
       description: 'Descripción del nuevo fondo',
@@ -82,33 +71,38 @@ export default function AdminFundManager() {
         { asset: 'Reserva', percentage: 10 }
       ],
       color: '#ffea00'
+    })
+  }
+
+  const saveNewFund = () => {
+    if (newFundTemplate) {
+      createFund(newFundTemplate)
+      setNewFundTemplate(null)
+      setSaveStatus(prev => ({ ...prev, [newFundTemplate.id]: 'success' }))
+      
+      setTimeout(() => {
+        setSaveStatus(prev => ({ ...prev, [newFundTemplate.id]: null }))
+      }, 3000)
     }
-    
-    setFunds(prev => [...prev, newFund])
   }
 
   const saveToAPI = async (fund) => {
     setSaveStatus(prev => ({ ...prev, [fund.id]: 'saving' }))
     
     try {
-      // Simulación de llamada a API
-      await new Promise(resolve => setTimeout(resolve, 1500))
-      
-      // Aquí iría la conexión real a tu API
-      console.log('Guardando fondo:', fund)
-      /*
+      // Simulación de API - Reemplaza con tu endpoint real
       const response = await fetch('/api/funds/update', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(fund)
       })
-      
+
       if (!response.ok) throw new Error('Error al guardar')
-      */
       
+      // Los datos ya están actualizados en el contexto
+      // Solo mostramos éxito
       setSaveStatus(prev => ({ ...prev, [fund.id]: 'success' }))
       
-      // Resetear estado después de 3 segundos
       setTimeout(() => {
         setSaveStatus(prev => ({ ...prev, [fund.id]: null }))
       }, 3000)
@@ -123,10 +117,53 @@ export default function AdminFundManager() {
     }
   }
 
+  const handleImport = async (event) => {
+    const file = event.target.files[0]
+    if (!file) return
+
+    const reader = new FileReader()
+    reader.onload = (e) => {
+      try {
+        const importedFunds = JSON.parse(e.target.result)
+        setFunds(importedFunds)
+        alert('Fondos importados exitosamente')
+      } catch (error) {
+        alert('Error al importar el archivo')
+      }
+    }
+    reader.readAsText(file)
+  }
+
+  const handleExport = () => {
+    const dataStr = JSON.stringify(funds, null, 2)
+    const dataBlob = new Blob([dataStr], { type: 'application/json' })
+    const url = URL.createObjectURL(dataBlob)
+    const link = document.createElement('a')
+    link.href = url
+    link.download = 'fondos-inversion.json'
+    link.click()
+  }
+
   return (
     <div className="admin-manager">
-      <h2>Panel de Administración - Gestión de Fondos</h2>
-      
+      <div className="admin-header">
+        <h2>Panel de Administración - Gestión de Fondos</h2>
+        <div className="admin-actions">
+          <button className="btn-secondary" onClick={handleExport}>
+            📁 Exportar Fondos
+          </button>
+          <label className="btn-secondary">
+            📤 Importar Fondos
+            <input 
+              type="file" 
+              accept=".json" 
+              onChange={handleImport}
+              style={{ display: 'none' }}
+            />
+          </label>
+        </div>
+      </div>
+
       <div className="funds-list-admin">
         {funds.map(fund => (
           <div key={fund.id} className="fund-card-admin">
@@ -159,17 +196,6 @@ export default function AdminFundManager() {
                 />
               </div>
 
-              <div className="form-group" data-tooltip="Monto total invertido por clientes">
-                <label>Capital Invertido</label>
-                <input 
-                  type="number" 
-                  step="0.01"
-                  value={fund.investedAmount}
-                  onChange={(e) => updateFundField(fund.id, 'investedAmount', e.target.value)}
-                  placeholder="0.00"
-                />
-              </div>
-
               <div className="form-group" data-tooltip="Rendimiento porcentual desde inicio">
                 <label>Rendimiento (%)</label>
                 <input 
@@ -190,41 +216,11 @@ export default function AdminFundManager() {
                   placeholder="Ej: 1.5% anual"
                 />
               </div>
-
-              <div className="form-group" data-tooltip="Tiempo para retirar inversión">
-                <label>Liquidez</label>
-                <input 
-                  type="text" 
-                  value={fund.liquidity}
-                  onChange={(e) => updateFundField(fund.id, 'liquidity', e.target.value)}
-                  placeholder="Ej: 48 horas"
-                />
-              </div>
-
-              <div className="form-group" data-tooltip="Categoría para filtros">
-                <label>Categoría</label>
-                <input 
-                  type="text" 
-                  value={fund.category}
-                  onChange={(e) => updateFundField(fund.id, 'category', e.target.value)}
-                  placeholder="Ej: Alto Rendimiento"
-                />
-              </div>
-
-              <div className="form-group" data-tooltip="Monto mínimo para invertir">
-                <label>Inversión Mínima</label>
-                <input 
-                  type="number" 
-                  value={fund.minInvestment}
-                  onChange={(e) => updateFundField(fund.id, 'minInvestment', e.target.value)}
-                  placeholder="0"
-                />
-              </div>
             </div>
 
             {/* HISTORIAL DE RENDIMIENTO */}
             <div className="performance-history-admin">
-              <h4>Historial de Rendimiento (Últimos 9 meses)</h4>
+              <h4>Historial de Rendimiento</h4>
               <div className="history-grid">
                 {fund.performanceHistory.map((month, idx) => (
                   <div key={idx} className="history-input">
@@ -240,35 +236,12 @@ export default function AdminFundManager() {
               </div>
             </div>
 
-            {/* COMPOSICIÓN */}
-            <div className="composition-admin">
-              <h4>Composición del Fondo (Debe sumar 100%)</h4>
-              {fund.composition.map((asset, idx) => (
-                <div key={idx} className="asset-input-row">
-                  <input 
-                    type="text"
-                    value={asset.asset}
-                    onChange={(e) => updateComposition(fund.id, idx, 'asset', e.target.value)}
-                    placeholder="Nombre del activo"
-                  />
-                  <input 
-                    type="number"
-                    value={asset.percentage}
-                    onChange={(e) => updateComposition(fund.id, idx, 'percentage', e.target.value)}
-                    placeholder="%"
-                    min="0"
-                    max="100"
-                  />
-                </div>
-              ))}
-            </div>
-
             {/* ESTADO DE GUARDADO */}
             {saveStatus[fund.id] && (
               <div className={`save-status ${saveStatus[fund.id]}`}>
                 {saveStatus[fund.id] === 'saving' && '⏳ Guardando cambios...'}
-                {saveStatus[fund.id] === 'success' && '✅ Cambios guardados exitosamente'}
-                {saveStatus[fund.id] === 'error' && '❌ Error al guardar, intenta nuevamente'}
+                {saveStatus[fund.id] === 'success' && '✅ Cambios guardados'}
+                {saveStatus[fund.id] === 'error' && '❌ Error al guardar'}
               </div>
             )}
 
@@ -277,20 +250,55 @@ export default function AdminFundManager() {
               onClick={() => saveToAPI(fund)}
               disabled={saveStatus[fund.id] === 'saving'}
             >
-              💾 Guardar Cambios en {fund.name}
+              💾 Guardar Cambios
             </button>
           </div>
         ))}
       </div>
 
+      {/* FORMULARIO PARA NUEVO FONDO */}
+      {newFundTemplate && (
+        <div className="new-fund-form">
+          <h3>Crear Nuevo Fondo</h3>
+          <div className="fund-form-grid">
+            <div className="form-group">
+              <label>Nombre del Fondo</label>
+              <input 
+                type="text"
+                value={newFundTemplate.name}
+                onChange={(e) => setNewFundTemplate(prev => ({ ...prev, name: e.target.value }))}
+              />
+            </div>
+            <div className="form-group">
+              <label>Valor Inicial</label>
+              <input 
+                type="number"
+                value={newFundTemplate.currentValue}
+                onChange={(e) => setNewFundTemplate(prev => ({ ...prev, currentValue: parseFloat(e.target.value) || 0 }))}
+              />
+            </div>
+          </div>
+          <div className="form-actions">
+            <button className="btn-primary" onClick={saveNewFund}>
+              Crear Fondo
+            </button>
+            <button className="btn-secondary" onClick={() => setNewFundTemplate(null)}>
+              Cancelar
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* BOTÓN PARA CREAR NUEVO FONDO */}
-      <div className="create-fund-section" onClick={addNewFund}>
-        <h3>+ Crear Nuevo Fondo de Inversión</h3>
-        <p>Agrega un nuevo fondo a tu portafolio de inversiones</p>
-        <button className="create-fund-btn">
-          Agregar Fondo
-        </button>
-      </div>
+      {!newFundTemplate && (
+        <div className="create-fund-section" onClick={addNewFund}>
+          <h3>+ Crear Nuevo Fondo de Inversión</h3>
+          <p>Agrega un nuevo fondo a tu portafolio de inversiones</p>
+          <button className="create-fund-btn">
+            Agregar Fondo
+          </button>
+        </div>
+      )}
     </div>
   )
 }
