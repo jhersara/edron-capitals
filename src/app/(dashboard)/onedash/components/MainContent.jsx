@@ -2,6 +2,8 @@
 import React from 'react'
 import Home from '../sections/Home'
 import Portfolio from '../sections/Portafolio'
+import Invest from '../sections/Invest'
+import Movements from '../sections/Movements'
 import '@/app/(dashboard)/onedash/components/MainContent.css'
 import { motion, AnimatePresence } from 'framer-motion'
 
@@ -30,7 +32,5 @@ export default function MainContent({ section }) {
 
 
 /* COMPONENTES SIMULADOS */
-const Invest = () => <h1>Invertir</h1>
-const Movements = () => <h1>Movimientos</h1>
 const Profile = () => <h1>Mi perfil</h1>
 const Help = () => <h1>Centro de ayuda</h1>
