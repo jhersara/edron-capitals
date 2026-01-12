@@ -4,6 +4,8 @@ import Home from '../sections/Home'
 import Portfolio from '../sections/Portafolio'
 import Invest from '../sections/Invest'
 import Movements from '../sections/Movements'
+import Profile from '../sections/Profile'
+import Help from '../sections/Help'
 import '@/app/(dashboard)/onedash/components/MainContent.css'
 import { motion, AnimatePresence } from 'framer-motion'
 
@@ -29,8 +31,3 @@ export default function MainContent({ section }) {
     </main>
   )
 }
-
-
-/* COMPONENTES SIMULADOS */
-const Profile = () => <h1>Mi perfil</h1>
-const Help = () => <h1>Centro de ayuda</h1>

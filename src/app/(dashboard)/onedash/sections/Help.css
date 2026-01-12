@@ -1,0 +1,41 @@
+/* GRID PRINCIPAL */
+.help-grid {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  margin-bottom: 2rem;
+}
+
+/* TARJETAS DE ACCESO */
+.help-card {
+  text-align: center;
+}
+
+.help-card svg {
+  margin-bottom: 0.5rem;
+  color: var(--cl-primary-500);
+}
+
+/* FAQ */
+.help-faq {
+  margin-bottom: 2rem;
+}
+
+.faq-item {
+  margin-top: 1rem;
+}
+
+.faq-item strong {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+/* CONTACTO */
+.help-contact {
+  font-size: 0.9rem;
+}
+
+.contact-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}

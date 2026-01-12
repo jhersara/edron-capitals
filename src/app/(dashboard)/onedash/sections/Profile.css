@@ -1,0 +1,101 @@
+/* IDENTIDAD */
+.profile-identity {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile-identity-left {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.profile-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--cl-bg-alt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cl-primary-500);
+}
+
+.muted {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  color: var(--cl-text-secondary);
+}
+
+.profile-status {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: var(--font-weight-medium);
+}
+
+.profile-status.verified {
+  color: var(--cl-success);
+}
+
+/* GRID */
+.profile-grid {
+  margin-top: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* KYC */
+.kyc-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.success {
+  color: var(--cl-success);
+}
+
+.kyc-complete {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--cl-success);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* ALERTAS */
+.alert {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.alert.neutral {
+  color: var(--cl-text-secondary);
+}
+
+/* CUENTA */
+.account-ok {
+  margin-top: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  color: var(--cl-success);
+}
+
+/* SEGURIDAD */
+.profile-security {
+  margin-top: 2rem;
+}
+
+.security-actions {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}
